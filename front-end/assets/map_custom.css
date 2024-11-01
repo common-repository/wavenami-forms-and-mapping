@@ -1,0 +1,449 @@
+html, body{
+    width:100%;
+    min-height: 100vh;
+    height: 100vh;
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    line-height:1.15;
+    color:#404040;
+    font:400 1em/1.4 'Open Sans',sans-serif;
+    text-rendering: optimizeLegibility;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%;
+    overflow: hidden;
+}
+
+article, .entry-content, .container {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    /*overflow: hidden;*/  /*makes the body non-scrollable (we will add scrolling to the sidebar and main content containers)*/
+    margin: 0;  /*removes default style*/
+    box-sizing: border-box;
+}
+
+#map {
+    width:100%;
+    min-height: 100vh;
+    height: 100vh;
+}
+
+.leaflet-container {
+    background: rgb(255,255,255,0);
+}
+
+/* spinner css */  
+.sk-fading-circle {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 40%;
+    width: 80px;
+    height: 80px;
+    z-index: 1000;
+  }
+
+
+  .sk-fading-circle .sk-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .sk-fading-circle .sk-circle:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    height: 15%;
+    background-color: #288629;
+    border-radius: 100%;
+    -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+            animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+  }
+  .sk-fading-circle .sk-circle2 {
+    -webkit-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  .sk-fading-circle .sk-circle3 {
+    -webkit-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+            transform: rotate(60deg);
+  }
+  .sk-fading-circle .sk-circle4 {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .sk-fading-circle .sk-circle5 {
+    -webkit-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+            transform: rotate(120deg);
+  }
+  .sk-fading-circle .sk-circle6 {
+    -webkit-transform: rotate(150deg);
+        -ms-transform: rotate(150deg);
+            transform: rotate(150deg);
+  }
+  .sk-fading-circle .sk-circle7 {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .sk-fading-circle .sk-circle8 {
+    -webkit-transform: rotate(210deg);
+        -ms-transform: rotate(210deg);
+            transform: rotate(210deg);
+  }
+  .sk-fading-circle .sk-circle9 {
+    -webkit-transform: rotate(240deg);
+        -ms-transform: rotate(240deg);
+            transform: rotate(240deg);
+  }
+  .sk-fading-circle .sk-circle10 {
+    -webkit-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  .sk-fading-circle .sk-circle11 {
+    -webkit-transform: rotate(300deg);
+        -ms-transform: rotate(300deg);
+            transform: rotate(300deg); 
+  }
+  .sk-fading-circle .sk-circle12 {
+    -webkit-transform: rotate(330deg);
+        -ms-transform: rotate(330deg);
+            transform: rotate(330deg); 
+  }
+  .sk-fading-circle .sk-circle2:before {
+    -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s; 
+  }
+  .sk-fading-circle .sk-circle3:before {
+    -webkit-animation-delay: -1s;
+            animation-delay: -1s; 
+  }
+  .sk-fading-circle .sk-circle4:before {
+    -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s; 
+  }
+  .sk-fading-circle .sk-circle5:before {
+    -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s; 
+  }
+  .sk-fading-circle .sk-circle6:before {
+    -webkit-animation-delay: -0.7s;
+            animation-delay: -0.7s; 
+  }
+  .sk-fading-circle .sk-circle7:before {
+    -webkit-animation-delay: -0.6s;
+            animation-delay: -0.6s; 
+  }
+  .sk-fading-circle .sk-circle8:before {
+    -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s; 
+  }
+  .sk-fading-circle .sk-circle9:before {
+    -webkit-animation-delay: -0.4s;
+            animation-delay: -0.4s;
+  }
+  .sk-fading-circle .sk-circle10:before {
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  .sk-fading-circle .sk-circle11:before {
+    -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s;
+  }
+  .sk-fading-circle .sk-circle12:before {
+    -webkit-animation-delay: -0.1s;
+            animation-delay: -0.1s;
+  }
+  
+  @-webkit-keyframes sk-circleFadeDelay {
+    0%, 39%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+  }
+  
+  @keyframes sk-circleFadeDelay {
+    0%, 39%, 100% { opacity: 0; }
+    40% { opacity: 1; } 
+  }
+/* end spinner css */  
+.btn {
+    display: inline-block;
+    padding: 7px 12px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn-success-bottom {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    margin-bottom: 20px;
+}
+
+.column-right {
+    height: 100%;  /*allows both columns to span the full height of the browser window*/
+    display: flex;
+    flex-direction: row;
+}
+
+.column-left {
+    height: 100%;  /*allows both columns to span the full height of the browser window*/
+    display: flex;
+    flex-direction: column;  /*places the left and right headers above the bottom content*/
+}
+
+#left {
+    flex-shrink: 0;  /*makes sure that content is not cut off in a smaller browser window*/
+}
+
+#right {
+    flex-direction: row;
+}
+
+.top-left {
+    flex-shink: 0;
+}
+
+.top-right {
+    flex-shrink: 0;
+    display: inline-flex;
+}
+
+ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+.bottom {
+    flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
+    overflow-y: auto;  /*adds scroll to this container*/
+}
+
+#userList {
+    /*-webkit-flex: 1 1 auto;*/
+    /*overflow: auto;*/
+    min-height: 0px;
+    height: 100%;
+}
+
+#mapster_wrap_0 {
+    /*background: orange;*/
+    /*width: calc(100% - 350px);*/
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.topcorner{
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 1000;
+}
+
+.vendors {
+    /*float: right;*/
+    /*display: block;*/
+}
+
+ul#boothlist {
+    list-style: none;
+}
+
+.boothlist {
+    position: relative;
+    z-index: 1000;
+    display: block;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 0px;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 0px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.owner{
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*-webkit-flex: 1 1 auto;*/
+    min-height: 0px;
+    height: 100%;
+    /*overflow-x: hidden;*/
+    /*overflow-y: auto;*/
+    margin-right: 5px;
+}
+
+.boothlist {
+    /*height: 400px;*/
+    /*overflow: auto;*/
+}
+
+li.selected {
+    background-color: #EEEEEE;
+    text-shadow: 0px 1px 1px #4d4d4d;
+}
+
+.boothlist > li {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.boothlist > li:hover {
+    cursor: pointer;
+    background-color: #e4e4e4;
+}
+
+.boothlist > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+a {
+    color: #12529b;
+}
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+a {
+    background: transparent;
+}
+
+#keywords{
+    display: inline-block;
+    height: 12px;
+    line-height: 12px;
+    padding: 0.2em;
+    background-color: #3498db;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+    margin: 2px 2px 0px 0px;
+    vertical-align:middle;
+}
+
+/* Map Tooltips */
+.tooltip {
+    font-family: Arial, Tahoma, sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 10px;
+    line-height: 1.5em;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 0px;
+    -webkit-box-shadow: 5px 6px 6px 2px rgba(0,0,0,0.43);
+    box-shadow: 5px 6px 6px 2px rgba(0,0,0,0.43);
+    max-width: 250px;
+}
+
+/* Bootstrap stuff */
+
+.navbar-brand {
+    float: left;
+    padding: 15px 12px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+}
+
+small, .small {
+    font-size: 85%;
+}
+
+/* top map note */
+#note {
+    position: absolute;
+    z-index: 101;
+    top: 10px;
+    left: 0;
+    right: 0;
+    background: #fff8df;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 400px;
+    z-index: 1000;
+}
+
+@-webkit-keyframes slideDown {
+    0%, 100% { -webkit-transform: translateY(-50px); }
+    10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+    0%, 100% { -moz-transform: translateY(-50px); }
+    10%, 90% { -moz-transform: translateY(0px); }
+}
+
+.cssanimations.csstransforms #note {
+    -webkit-transform: translateY(-50px);
+    -webkit-animation: slideDown 2.5s 1.0s 1 ease forwards;
+    -moz-transform:    translateY(-50px);
+    -moz-animation:    slideDown 2.5s 1.0s 1 ease forwards;
+}
+
+@media only screen and (max-width: 768px){
+    #note {
+       top: unset;
+       bottom: 0;
+       width: 100%;
+    }
+}
+
+.sweet-alert button.cancel, .sweet-alert button.cancel:hover {
+    /* background-color: #ff8e8e; */
+    background-color: #a8a8a8;
+}

@@ -1,0 +1,35 @@
+.shell {
+    position: relative;
+    line-height: 1;
+}
+
+.shell span {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    color: red;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.shell span i {
+    /* any of these 3 will work */
+    color: transparent;
+    opacity: 0;
+    visibility: hidden;
+}
+
+input.masked,
+.shell span {
+    font-size: 16px;
+    font-family: monospace;
+    padding-right: 10px;
+    background-color: #fff;
+    text-transform: uppercase;
+}
+
+#ccnum {
+    background-image: unset;
+    background-repeat: no-repeat;
+    background-position: right;
+}

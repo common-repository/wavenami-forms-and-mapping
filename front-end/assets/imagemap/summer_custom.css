@@ -1,0 +1,62 @@
+#edit_details h5 {
+    margin-bottom: 14px;
+    font-size: 15px;
+    cursor: move;
+}
+#edit_details label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 2px;
+}
+#edit_details input[type="text"] {
+    background: #FFF;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 2px 5px;
+    width: 160px;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.5) 0 1px 2px inset;
+    color: black;
+}
+#edit_details p {
+    margin-bottom: 15px;
+}
+
+#get_image {
+    width: 260px;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+    background: #FFF;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.2) 0 0 2px 2px;
+    position: relative;
+}
+#header {
+    text-align: center;
+}
+#dropzone {
+    border: 2px dashed #999;
+    width: 260px;
+    height: 200px;
+    background: #FAFAFA url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAiCAYAAADCp/A1AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAApjAAAKYwGDMomsAAAAB3RJTUUH3AkYCxg3B2a5QgAAAKtJREFUWMPt17sNgDAMRdE8tsj+w2UM6CiQEv9jIvm1COl0uUZbbIxxt03rvWP27WoHrJCFLGQhC1nIQr7DzohQI3fXjqaOkJFl0nxDVj9K+hKZocsNYGQXOafQ8YfTgTohcMKNA+rnHdAVkIWMhlJANjIKygGKkN5QLlCM9IJKgCqkFSoFqpFaqAZoQkqhWqAZyYVagC5ICmoFuiFnUA+gK/IL9QKGLOJlegBB2VeWydvIHgAAAABJRU5ErkJggg==) 50% 50% no-repeat;
+    overflow: hidden;
+    text-align: center;
+    line-height: 200px;
+    position: relative;
+}
+
+#nav a:link, #nav a:visited {
+    border: 1px solid #FFF;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 5px 10px;
+    display: inline-block;
+}
+#close {
+    background-color: red;
+}
+#save {
+    background-color: green;
+}
